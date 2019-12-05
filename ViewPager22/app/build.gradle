@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.app.mytaxi"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://fake-poi-api.mytaxi.com/\"")
+        }
+    }
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        implementation 'androidx.appcompat:appcompat:1.1.0'
+        implementation "androidx.recyclerview:recyclerview:$support_library_version"
+        implementation 'com.android.support:multidex:1.0.3'
+
+        // For control over item selection of both touch and mouse driven selection
+        implementation "androidx.recyclerview:recyclerview-selection:$support_library_version"
+        implementation 'androidx.core:core-ktx:1.1.0'
+        implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+        implementation 'androidx.viewpager2:viewpager2:1.0.0'
+        implementation 'androidx.fragment:fragment-ktx:1.2.0-rc02'
+        implementation 'com.google.android.material:material:1.2.0-alpha01'
+
+        //coroutine
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_android_version"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android_version"
+
+        //Map
+        implementation "com.google.android.gms:play-services-maps:$play_services_map_version"
+        implementation "com.google.android.gms:play-services-location:$play_services_map_version"
+
+        // Dagger
+        implementation "com.google.dagger:dagger:$dagger_version"
+        kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+        // CardView
+        implementation "androidx.cardview:cardview:$support_library_version"
+
+        // ViewModel and LiveData
+        implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+        // Lifecycle Annotations
+        kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+        // Networking
+        implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+        implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+        implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+        implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+        implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0"
+
+        // Reactive
+        implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava_version"
+        implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version"
+
+        // logger
+        implementation "com.jakewharton.timber:timber:$timber_version"
+
+        // Parser
+        implementation "com.google.code.gson:gson:$gson_version"
+        testImplementation 'junit:junit:4.12'
+        androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    }
+}

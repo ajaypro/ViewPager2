@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyTaxi</string>
+    <string name="connection_error">Internet is not connect, Please connect to internet</string>
+    <string name="something_wrong">Something wrong happened, try again later</string>
+    <string name="server_error">Server is down</string>
+    <string name="map_key">AIzaSyBwSwffAgYWUWZ3OF4Z10-G85UhEEiNOJ0</string>
+    <string name="current_location">Current Location :</string>
+    <string name="no_service">No Service</string>
+    <string name="invalid_coordinates">Invalid latitude and longitude</string>
+    <string name="no_location">No location found</string>
+    <string name="location_found">location found</string>
+</resources>
